@@ -44,13 +44,7 @@ Export data in multiple formats:
 
 ## 📥 Installation
 
-### Option 1: Ascension Launcher (Recommended)
-1. Open the Ascension Launcher
-2. Navigate to **Addons**
-3. Search for "Quest Data Exporter"
-4. Click **Install**
-
-### Option 2: Manual Install
+### Manual Install
 1. Download the latest release
 2. Extract the `QuestDataExporter` folder
 3. Place it in your WoW directory:
