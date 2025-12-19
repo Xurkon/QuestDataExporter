@@ -1,0 +1,11 @@
+## Interface: 30300
+## Title: |cff00ff00Quest Data Exporter|r
+## Notes: Captures quest data for database building with community sync. Use /qde for commands.
+## Author: Xurkon
+## Version: 1.2.0
+## SavedVariables: QuestDataExporterDB
+
+Core.lua
+Options.lua
+Comm.lua
+Export.lua

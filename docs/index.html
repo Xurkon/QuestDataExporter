@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest Data Exporter - Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-green: #3fb950;
+            --accent-blue: #58a6ff;
+            --accent-purple: #a371f7;
+            --accent-orange: #d29922;
+            --border-color: #30363d;
+            --code-bg: #1f2428;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #162030 0%, #0d1117 50%, #1a1f35 100%);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center top, rgba(88, 166, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .badge.version {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .badge.platform {
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .btn-download {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-download:hover {
+            background: #4f96e5;
+            transform: translateY(-2px);
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+
+        /* Feature Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: var(--accent-blue);
+        }
+
+        /* Code Blocks */
+        pre {
+            background: var(--code-bg);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .lang-lua .keyword {
+            color: #ff7b72;
+        }
+
+        .lang-lua .string {
+            color: #a5d6ff;
+        }
+
+        .lang-lua .comment {
+            color: #8b949e;
+        }
+
+        .lang-lua .number {
+            color: #79c0ff;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <div class="badges">
+            <span class="badge version">v1.2.0</span>
+            <span class="badge platform">WoW 3.3.5a</span>
+            <a href="https://github.com/Xurkon/QuestDataExporter" class="badge">GitHub</a>
+        </div>
+        <h1>Quest Data Exporter</h1>
+        <p class="subtitle">Comprehensive Database Builder & Community Sync Tool for Ascension</p>
+        <a href="https://github.com/Xurkon/QuestDataExporter/releases" class="btn-download">Download Latest</a>
+    </div>
+
+    <div class="container">
+
+        <!-- Features -->
+        <section id="features">
+            <h2>✨ Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🔍 Automated Tracking</h3>
+                    <p>Automatically records quest details, objectives, text, and rewards as you play. No manual input
+                        required.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🤝 Community Sync</h3>
+                    <p>Share discoveries in real-time with other users via a hidden chat channel. Build the database
+                        together.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌍 NPC & Location Mapping</h3>
+                    <p>Captures precise coordinates for Quest Givers, Turn-ins, and objective Creatures with zone
+                        mapping.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 Multi-Format Export</h3>
+                    <p>Export data in Lua, JSON, or Indexed formats. Includes a full developer schema export.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Documentation -->
+        <section id="dev-docs">
+            <h2>🛠️ Developer Documentation</h2>
+            <p>Quest Data Exporter is designed to be a source for other addons and external tools.</p>
+
+            <h3>Data Schema</h3>
+            <p>The exported data follows a strict schema found in the global <code>QuestDataExport</code> table.</p>
+
+            <pre><code class="lang-lua">QuestDataExport.quests["Quest Name"] = {
+    id = 12345,
+    name = "Quest Name",
+    level = 25,
+    questText = "Full quest description...",
+    objectivesText = "Slay 10 Rats...",
+    giverName = "Guard Thomas",
+    giverLocation = { x = 45.2, y = 33.1, zone = "Elwynn Forest", map = 1 },
+    rewards = {
+        money = 500, -- Copper
+        xp = 250,
+        items = {
+            { id = 123, name = "Shiny Sword", count = 1, quality = 2 }
+        }
+    }
+}</code></pre>
+
+            <h3>How to Use in Your Addon</h3>
+            <p>To use the specific data collected by QDE in your own addon, follow these steps:</p>
+
+            <p><strong>1. Add to .toc Dependency</strong></p>
+            <pre><code class="lang-lua">## OptionalDeps: QuestDataExporter</code></pre>
+
+            <p><strong>2. Access Data Safely</strong></p>
+            <pre><code class="lang-lua">local function GetQuestInfo(questName)
+    if not QuestDataExport or not QuestDataExport.quests then return end
+    
+    local data = QuestDataExport.quests[questName]
+    if data then
+        print("Quest Level:", data.level)
+        print("Starts at:", data.giverName)
+    end
+end</code></pre>
+
+        </section>
+
+        <!-- Usage Guide -->
+        <section id="usage">
+            <h2>📖 Commands & Usage</h2>
+
+            <table>
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>/qde</code></td>
+                    <td>Show help menu</td>
+                </tr>
+                <tr>
+                    <td><code>/qde options</code></td>
+                    <td>Open configuration window</td>
+                </tr>
+                <tr>
+                    <td><code>/qde export</code></td>
+                    <td>Open export interface</td>
+                </tr>
+                <tr>
+                    <td><code>/qde sync on/off</code></td>
+                    <td>Toggle community data sync</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Changelog -->
+        <section id="changelog">
+            <h2>📜 Data Dictionary</h2>
+            <p>Below is a brief definition of the core data types captured.</p>
+            <ul>
+                <li><strong>Quests</strong>: ID, Name, Level, Objectives, Full Text.</li>
+                <li><strong>NPCs</strong>: Name, Coordinates, Zone ID, Map ID, Role (Giver/Turn-in).</li>
+                <li><strong>Items</strong>: Drop sources, related quest IDs.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Quest Data Exporter &copy; 2025 Xurkon. Not affiliated with Blizzard Entertainment.</p>
+    </footer>
+
+</body>
+
+</html>
