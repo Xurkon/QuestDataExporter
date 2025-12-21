@@ -211,6 +211,7 @@ end
 
 -- Check if location already exists (within tolerance)
 local function LocationExists(locationList, newLoc, tolerance)
+    if not locationList then return false end
     tolerance = tolerance or 0.01
     for _, existingLoc in ipairs(locationList) do
         if math.abs((existingLoc.x or 0) - (newLoc.x or 0)) < tolerance and 
