@@ -6,7 +6,8 @@
 ![WoW Version](https://img.shields.io/badge/WoW-3.3.5a-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Project%20Ascension-purple.svg)
-![Downloads](https://img.shields.io/github/downloads/Xurkon/QuestDataExporter/total?style=for-the-badge&label=DOWNLOADS&color=e67e22)
+![Total Downloads](https://img.shields.io/github/downloads/Xurkon/QuestDataExporter/total?style=for-the-badge&label=TOTAL%20DOWNLOADS&color=e67e22)
+![Latest Release](https://img.shields.io/github/downloads/Xurkon/QuestDataExporter/latest/total?style=for-the-badge&label=LATEST%20RELEASE&color=3498db)
 [![Patreon](https://img.shields.io/badge/Patreon-Support-orange?style=for-the-badge&logo=patreon)](https://patreon.com/Xurkon)
 [![PayPal](https://img.shields.io/badge/PayPal-Donate-blue?style=for-the-badge&logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=kancerous@gmail.com)
 
