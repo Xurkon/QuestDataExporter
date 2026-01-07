@@ -1,3 +1,5 @@
+This has been discontinued as I am creating a much more comprehensive addon to record all developer related data.
+
 <div align="center">
 
 # Quest Data Exporter
